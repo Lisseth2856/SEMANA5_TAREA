@@ -1,0 +1,118 @@
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+            <h3>Registro de Compras</h3>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <div class="col-md-3">
+                    <label class="form-label">Producto</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        [(ngModel)]="compra.producto">
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Cantidad</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="compra.cantidad">
+                </div>
+
+                <div class="col-md-2">
+                    <label class="form-label">Precio</label>
+                    <input
+                        type="number"
+                        class="form-control"
+                        [(ngModel)]="compra.precio">
+                </div>
+
+                <div class="col-md-3">
+                    <label class="form-label">Fecha</label>
+                    <input
+                        type="date"
+                        class="form-control"
+                        [(ngModel)]="compra.fecha">
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button
+                        class="btn btn-success w-100"
+                        (click)="guardar()">
+                        Guardar
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card shadow mt-4">
+
+        <div class="card-header">
+            Lista de Compras
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered table-hover">
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr *ngFor="let c of compras">
+
+                        <td>{{c.id}}</td>
+                        <td>{{c.producto}}</td>
+                        <td>{{c.cantidad}}</td>
+                        <td>${{c.precio}}</td>
+                        <td>{{c.fecha}}</td>
+
+                        <td>
+
+                            <button
+                                class="btn btn-warning btn-sm me-2"
+                                (click)="editar(c)">
+                                Editar
+                            </button>
+
+                            <button
+                                class="btn btn-danger btn-sm"
+                                (click)="eliminar(c.id)">
+                                Eliminar
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
